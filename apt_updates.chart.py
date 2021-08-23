@@ -42,8 +42,13 @@ class Service(ExecutableService):
         raw_data = self._get_raw_data()
         if not raw_data:
             return None
+        # Find line in apt-get output that contains number of updates
         update_line = filter(lambda x: 'newly installed' in x, raw_data)  
         if not update_line:
             return None
+        # Get first field from line (seperated by ', ')
         nr_updates = update_line[0].split(', ')[0]
+        if not nr_updates:
+            return None
+        # Return only the number of updates
         return {'apt_updates': re.search('\d+', nr_updates).group()}
