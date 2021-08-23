@@ -13,6 +13,8 @@ As usual, no config is required by default
 - to disable plugin, set `command` to `/bin/false`
 - to change check interval, set `update_every`
 
-## Compatibility
+## Example
+![Example image](example.png?raw=true "Title")
 
+## Compatibility
 Tested on Debian 8 - 11.
